@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import Launch from "./providers/Launch";
+import { Launch } from "./providers/Launch";
 import { launches, fetchLaunches } from "./providers/fetchData";
 import Loader from './components/Loader.vue';
 import { sortByField } from './providers/sort';
