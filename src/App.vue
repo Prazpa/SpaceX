@@ -148,12 +148,12 @@ const handleImageError = (event: Event) => {
         </p>
         
         <p class="text-gray-700 mb-2">
-          <strong>Rocket:</strong> 
+          <strong>Rocket ID:</strong> 
           {{ selectedLaunch?.rocket }}
         </p>
         
         <p class="text-gray-700 mb-2">
-          <strong>Launchpad:</strong> 
+          <strong>Launchpad ID:</strong> 
           {{ selectedLaunch?.launchpad }}
         </p>
         
