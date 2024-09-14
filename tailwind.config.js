@@ -3,11 +3,7 @@ export default {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   darkMode: false, 
   theme: {
-    extend: {
-      backgroundImage: {
-        'bgspace': "url('/src/assets/space.png')",
-      }
-    }
+    extend: {}
   },
   variants: {
     extend: {},
