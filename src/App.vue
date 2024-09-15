@@ -11,10 +11,18 @@ const showModal = ref(false);
 const selectedLaunch = ref<Launch | null>(null);
 
 // Fetch Data
+const error = ref(false);
+
 onMounted(async () => {
-  loading.value = true; 
-  await fetchLaunches();
-  loading.value = false; 
+  loading.value = true;
+  error.value = false; 
+  try {
+    await fetchLaunches();
+  } catch (err) {
+    error.value = true; 
+  } finally {
+    loading.value = false;
+  }
 });
 
 // Open and Close Modal 
@@ -147,17 +155,17 @@ const handleImageError = (event: Event) => {
         </p>
         
         <p class="text-gray-700 mb-2">
-          <strong>Rocket ID:</strong> 
+          <strong>Rocket:</strong> 
           {{ selectedLaunch?.rocket }}
         </p>
         
         <p class="text-gray-700 mb-2">
-          <strong>Launchpad ID:</strong> 
+          <strong>Launchpad:</strong> 
           {{ selectedLaunch?.launchpad }}
         </p>
         
         <p class="text-gray-700 mb-2">
-          <strong>Crew ID:</strong>
+          <strong>Crew:</strong>
           <ol v-if="selectedLaunch?.crew.length" class="list-decimal pl-5 text-gray-700">
             <li v-for="crewId in selectedLaunch.crew" :key="crewId">{{ crewId }}</li>
           </ol>
